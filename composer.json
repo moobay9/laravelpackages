@@ -1,0 +1,26 @@
+{
+    "name": "funaffect/packages",
+    "description": "Funaffect Laravel Packages",
+    "authors": [
+        {
+            "name": "M.Oobayashi",
+            "email": "m.oobayashi@funaffect.jp"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "laravel/framework": "5.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Funaffect\\LaravelPackages\\": "app/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Funaffect\\LaravelPackages\\Providers\\StartupServiceProvider"
+            ]
+        }
+    }
+}
