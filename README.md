@@ -5,10 +5,10 @@
 
 ## 注意事項
 
-config/app.php の locale と timezone が勝手に日本向けに書き換わります。
-config/app_settings.php が追加されます。
-resources/lang/ja/ 以下ファイルが追加されます。
-app/Http/Rules/CurrentPassword.php が追加されます。
+config/app.php の locale と timezone が勝手に日本向けに書き換わります。  
+config/app_settings.php が追加されます。  
+resources/lang/ja/ 以下ファイルが追加されます。  
+app/Http/Rules/CurrentPassword.php が追加されます。  
 
 
 
