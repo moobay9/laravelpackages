@@ -59,6 +59,6 @@ class ConvertKanjiNumber extends TransformsRequest
         $value = str_replace('⑨', '9', $value);
 
         // 処理返却
-        return $value ;
+        return $value;
     }
 }
