@@ -13,7 +13,8 @@ class ExtensionValidator extends Validator
      * @access public
      * @return bool
      */
-    public static function validateHiragana($attribute, $value, $parameters) {
+    public static function validateHiragana($attribute, $value, $parameters)
+    {
         return (bool) preg_match('/^[ぁ-ゞ 　〜ー−]+$/u', $value);
     }
 
@@ -24,7 +25,8 @@ class ExtensionValidator extends Validator
      * @access public
      * @return bool
      */
-    public function validateKatakana($attribute, $value, $parameters) {
+    public function validateKatakana($attribute, $value, $parameters)
+    {
         return (bool) preg_match('/^[ァ-ヾ 　〜ー−]+$/u', $value);
     }
 
@@ -36,7 +38,8 @@ class ExtensionValidator extends Validator
       * @access public
       * @return void
       */
-     public static function validateYmd($attribute, $value, $parameters) {
+     public static function validateYmd($attribute, $value, $parameters)
+     {
          return (bool) preg_match('/(^$|(19|20|21)[0-9]{2}-[0-1][0-9]-[0-3][0-9])/', $value);
      }
 
@@ -49,10 +52,27 @@ class ExtensionValidator extends Validator
      * @param  parameters
      * @return bool
      */
-    public function validateMaxLength($attribute, $value, $parameters) {
+    public function validateMaxLength($attribute, $value, $parameters)
+    {
         $this->requireParameterCount(1, $parameters, 'max_length');
 
         return mb_strlen($value) <= $parameters[0];
+    }
+
+    /**
+     * validateMinLength
+     * 最小文字長
+     * @access public
+     * @param  attribute
+     * @param  value
+     * @param  parameters
+     * @return bool
+     */
+    public function validateMinLength($attribute, $value, $parameters)
+    {
+        $this->requireParameterCount(1, $parameters, 'min_length');
+
+        return mb_strlen($value) >= $parameters[0];
     }
 
     /**
@@ -66,7 +86,8 @@ class ExtensionValidator extends Validator
      * @access public
      * @return void
      */
-    public function validateKeitaiEmail($attribute, $value, $parameters) {
+    public function validateKeitaiEmail($attribute, $value, $parameters)
+    {
         $result = true;
 
         $domains = [
@@ -91,8 +112,7 @@ class ExtensionValidator extends Validator
             'y-mobile.ne.jp',
         ];
 
-        foreach ($domains as $d)
-        {
+        foreach ($domains as $d) {
             $res = preg_match('/.*@.*'.$d.'$/', $value);
             (bool) $res and $result = false;
         }
@@ -109,7 +129,8 @@ class ExtensionValidator extends Validator
      * @param  parameters
      * @return bool
      */
-    public function validateValidBirthday($attribute, $value, $parameters) {
+    public function validateValidBirthday($attribute, $value, $parameters)
+    {
         $birthday = new Carbon($value);
         if ($birthday === false) {
             // 日付形式でなければチェックしない
@@ -122,21 +143,6 @@ class ExtensionValidator extends Validator
     }
 
     /**
-     * validateMaxLength
-     * 最大文字長
-     * @access public
-     * @param  attribute
-     * @param  value
-     * @param  parameters
-     * @return bool
-     */
-    // public function validateMaxLength($attribute, $value, $parameters) {
-    //     $this->requireParameterCount(1, $parameters, 'max_length');
-
-    //     return mb_strlen($value) <= $parameters[0];
-    // }
-
-    /**
      * validateComplexPassword
      * パスワードの複雑性
      * @access public
@@ -145,7 +151,8 @@ class ExtensionValidator extends Validator
      * @param  parameters
      * @return bool
      */
-    public function validateComplexPassword($attribute, $value, $parameters) {
+    public function validateComplexPassword($attribute, $value, $parameters)
+    {
         $small  = preg_match('/[a-z]/', $value);
         $big    = preg_match('/[A-Z]/', $value);
         $number = preg_match('/[0-9]/', $value);

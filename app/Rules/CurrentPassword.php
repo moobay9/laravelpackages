@@ -30,6 +30,6 @@ class CurrentPassword implements Rule
      */
     public function message()
     {
-        return ':Attribute は正しくありません。';
+        return __('validation.current_password');
     }
 }
