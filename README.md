@@ -5,10 +5,11 @@
 
 ## 注意事項
 
-config/app.php の locale と timezone が勝手に日本向けに書き換わります。  
-config/app_settings.php が追加されます。  
-resources/lang/ja/ 以下ファイルが追加されます。  
-app/Http/Rules/CurrentPassword.php が追加されます。  
+- config/app.php の locale と timezone が勝手に日本向けに書き換わります。  
+- config/app_settings.php が追加されます。  
+- config/packages.php が追加されます。  
+- resources/lang/ja/ 以下ファイルが追加されます。  
+- app/Http/Rules/CurrentPassword.php が追加されます。  
 
 
 
@@ -30,5 +31,6 @@ Laravel をインストール後、composer.json に以下を追加してくだ�
 },
 ```
 
-追加後、`composer install` するとパッケージがインストールされます。
+追加後、`composer install` するとパッケージがインストールされます。  
+`composer require funaffect/packages:dev-master` でもたぶん入ります。（未検証）  
 パッケージ追加後は忘れずに `php artisan vendor:publish --tag=packages` を実行してください。
