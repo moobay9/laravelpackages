@@ -32,8 +32,8 @@ class ConvertOneByte extends TransformsRequest
     protected function transform($key, $value)
     {
         // エラー処理
-        if($value == '') return '';
-        if( ! function_exists('mb_convert_kana')) return $value ;
+        if ($value == '') return '';
+        if ( ! function_exists('mb_convert_kana')) return $value;
 
         // 除外
         if ( ! in_array($key, $this->only, true)) {

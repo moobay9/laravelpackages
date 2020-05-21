@@ -41,6 +41,7 @@ class ConvertDot extends TransformsRequest
         // 処理
         $value = str_replace('。', '.', $value);
         $value = str_replace('．' , '.', $value);
+
         return $value ;
     }
 }

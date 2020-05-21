@@ -47,6 +47,10 @@ class StartupServiceProvider extends ServiceProvider
             return str_replace(':max', $parameters[0], $message);
         });
 
+        $this->app['validator']->replacer('min_length', function ($message, $attribute, $rule, $parameters) {
+            return str_replace(':min', $parameters[0], $message);
+        });
+
         $this->publishes([
             __DIR__.'/../Rules/CurrentPassword.php' => app_path('Http/Rules/CurrentPassword.php'),
         ], 'packages');

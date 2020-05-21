@@ -32,8 +32,7 @@ class RedirectIfReAuthenticated
     {
         $session = $request->session()->get('re-auth');
 
-        if (is_null($session) OR ! $session)
-        {
+        if (is_null($session) or ! $session) {
             // セッションの保存
             $request->session()->flash('re-auth', url()->current()); // 飛ぼうとしているURLを保存
 

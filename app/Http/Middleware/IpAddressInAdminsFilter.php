@@ -20,7 +20,7 @@ class IpAddressInAdminsFilter
     {
         if ($this->validateIpv4('', $request->ip())) {
             return (collect(config('packages.allow_ips'))->contains($request->ip())) ? $next($request) : abort(404);
-        } else if ($this->validateIpv6('', $request->ip())) {
+        } elseif ($this->validateIpv6('', $request->ip())) {
             $ipv6s = config('packages.allow_ipv6s');
             $return = false;
             foreach ($ipv6s as $ipv6) {

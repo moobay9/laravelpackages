@@ -34,7 +34,7 @@ class RemoveHyphen extends TransformsRequest
         $hyphens = array('-', '一', 'ー', '−');
 
         // エラー処理
-        if($value == '') return '';
+        if ($value == '') return '';
 
         // 除外
         if ( ! in_array($key, $this->only, true)) {
